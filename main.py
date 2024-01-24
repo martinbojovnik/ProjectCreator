@@ -3,6 +3,19 @@ import os
 if not os.path.exists("Profiles"):
     os.mkdir("Profiles")
 
+if not os.path.exists("confi.conf"):
+    with open("confi.conf") as fp:
+        while True:
+            dir = input("Write Projects Directory> ")
+            try:
+                if os.path.exists("dir"):
+                    fp.write(f"path={dir}")
+                    break
+            except:
+                pass
+with open("confi.conf") as fp:
+    config = fp.read().split("\n")
+
 allFiles = os.listdir("Profiles")
 if not allFiles == []:
     for num, i in enumerate(allFiles):
@@ -29,7 +42,7 @@ while True:
     if not name == "":
         break
 
-path = f"C:/Users/marti/Desktop/MyPrograms/{name}"
+path = f"{config[0][:5]}/{name}"
 os.mkdir(path)
 
 f = open(f"./Profiles/{allFiles[ProfileToCreate-1]}")
