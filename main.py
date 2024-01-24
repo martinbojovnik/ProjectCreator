@@ -28,3 +28,15 @@ while True:
     name = input("NameOfTheProject> ")
     if not name == "":
         break
+
+path = f"C:/Users/marti/Desktop/MyPrograms/{name}"
+os.mkdir(path)
+
+f = open(f"./Profiles/{allFiles[ProfileToCreate-1]}")
+commands = f.read().split("\n")
+f.close()
+
+for i in commands:
+    com = i[:3]
+    if com == "crd":
+        os.mkdir(f"{path}/{i.replace(i[:4], '')}")
