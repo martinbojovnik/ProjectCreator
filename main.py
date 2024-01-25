@@ -42,7 +42,7 @@ while True:
     if not name == "":
         break
 
-path = f"{config[0][:5]}/{name}"
+path = f"{config[0][5:]}/{name}"
 os.mkdir(path)
 
 f = open(f"./Profiles/{allFiles[ProfileToCreate-1]}")
