@@ -51,11 +51,10 @@ f.close()
 
 for i in commands:
     com = i[:3]
-    os.system(f"cd {path}")
     if com == "crd":
         os.mkdir(f"{path}/{i.replace(i[:4], '')}")
     elif com == "crf":
         with open(f"{path}/{i.replace(i[:4], '')}", 'w') as fp:
             pass
     elif com == "cmd":
-        os.system(i.replace(i[:4], ''))
+        os.system(f"cd {path} && {i.replace(i[:4], '')}")
